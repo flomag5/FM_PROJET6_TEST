@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 // Importation mongoose
 const mongoose = require('mongoose');
 
-// Importation du chemin
+// Importation pour accéder au path du serveur
 const path = require('path');
 
 // Improtation des routes
@@ -41,8 +41,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
+// Gestionnaire de routage
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
+// Routes sauces et utilisateurs
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
 

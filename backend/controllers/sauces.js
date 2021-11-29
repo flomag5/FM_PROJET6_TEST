@@ -10,7 +10,6 @@ exports.createSauce = (req, res, next) => {
         ...sauceObject,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
-
     // Enregistrement d'une sauce dans database
     sauce.save()
         .then(() => {
@@ -39,6 +38,12 @@ exports.getOneSauce = (req, res, next) => {
 
 // Modification d'une sauce UPDATE
 exports.modifySauce = (req, res, next) => {
+    const sauceObject = req.file ?
+        {
+            ...JSON.parse(req.body.sauce),
+            // Construction de l'URL du fichier enregistré
+            imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        } : { ...req.body };
     Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
         .then(() => res.status(200).json({ message: "La sauce a été modifiée" }))
         .catch(error => res.status(400).json({ error }));
