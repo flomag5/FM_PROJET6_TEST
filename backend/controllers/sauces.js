@@ -1,6 +1,8 @@
 // Importation du modèle de la database
 const Sauce = require('../models/Sauce');
 
+
+// Création d'une sauce CREATE
 exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
@@ -21,20 +23,23 @@ exports.createSauce = (req, res, next) => {
 
 };
 
+// Affichage de toutes les sauces READ
 exports.getAllSauces = (req, res, next) => {
     Sauce.find()
         .then(sauces => res.status(200).json(sauces))
         .catch(error => res.status(400).json({ error }));
 };
 
+// Affichage d'une sauce READ
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
         .then(sauce => res.status(200).json(sauce))
         .catch(error => res.status(404).json({ error }));
 };
 
+// Modification d'une sauce UPDATE
 exports.modifySauce = (req, res, next) => {
-    Sauce.updateOne()
+    Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
         .then(() => res.status(200).json({ message: "La sauce a été modifiée" }))
-        .catch(error => res.status(400).json({ error }))
-}
+        .catch(error => res.status(400).json({ error }));
+};
