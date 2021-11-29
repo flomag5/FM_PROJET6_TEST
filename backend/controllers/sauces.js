@@ -43,3 +43,10 @@ exports.modifySauce = (req, res, next) => {
         .then(() => res.status(200).json({ message: "La sauce a été modifiée" }))
         .catch(error => res.status(400).json({ error }));
 };
+
+// Suppression d'une sauce DELETE
+exports.deleteSauce = (req, res, next) => {
+    Sauce.deleteOne({ _id: req.params.id })
+        .then(() => res.status(200).json({ message: "La sauce a bien été supprimée" }))
+        .catch(error => res.status(400).json({ error }));
+};
