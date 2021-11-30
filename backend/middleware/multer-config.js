@@ -1,4 +1,4 @@
-// Importation de multer
+// Import package de gestion des fichiers entrants dans requête HTTP
 const multer = require('multer');
 
 // Création d'un objet type dictionnaire
@@ -8,7 +8,7 @@ const MIME_TYPES = {
     'image/png': 'png'
 };
 
-// Objet de configuration de multer
+// Objet de configuration du chemin et du nom de fichier
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, 'images')

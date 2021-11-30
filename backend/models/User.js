@@ -1,10 +1,11 @@
 // Importation mongoose
 const mongoose = require('mongoose');
+// Package de validation
 const uniqueValidator = require('mongoose-unique-validator');
 
 // Schema du modèle de base pour sign up/login
 const userSchema = mongoose.Schema({
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true }, // Pas 2 users avec le même email
     password: { type: String, required: true }
 });
 

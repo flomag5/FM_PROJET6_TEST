@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 // Import de crypto-js pour chiffrer adresse mail
 const cryptojs = require('crypto-js');
-// Import de jsonwebtoken
+// Import de package token d'authentification
 const jwt = require('jsonwebtoken');
 
 // Import variables d'environnement
