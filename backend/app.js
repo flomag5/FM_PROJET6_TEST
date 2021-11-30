@@ -42,6 +42,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 // Gestionnaire de routage
+// Configuration du serveur pour renvoyer des fichiers statiques
 app.use('/images', express.static(path.join(__dirname, 'images')));
 // Routes sauces et utilisateurs
 app.use('/api/sauces', saucesRoutes);
