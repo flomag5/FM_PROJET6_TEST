@@ -1,6 +1,8 @@
 // Importation express
 const express = require('express');
 
+// Import helmet
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 // Importation mongoose
@@ -18,6 +20,8 @@ const dotenv = require('dotenv');
 const result = dotenv.config();
 
 const app = express();
+
+app.use(helmet());
 
 // Connexion à la base de données MongoDB
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,

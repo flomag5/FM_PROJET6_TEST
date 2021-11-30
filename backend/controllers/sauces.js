@@ -10,6 +10,7 @@ exports.createSauce = (req, res, next) => {
     delete sauceObject._id;
     const sauce = new Sauce({
         ...sauceObject,
+        // Résolution complète de l'Url de l'image
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
     // Enregistrement d'une sauce dans la database
