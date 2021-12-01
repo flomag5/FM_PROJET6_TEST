@@ -3,6 +3,7 @@ const express = require('express');
 
 // Import helmet
 const helmet = require('helmet');
+
 const bodyParser = require('body-parser');
 
 // Importation mongoose
@@ -21,6 +22,7 @@ const result = dotenv.config();
 
 const app = express();
 
+// Sécurisation des en-têtes de réponse http
 app.use(helmet());
 
 // Connexion à la base de données MongoDB

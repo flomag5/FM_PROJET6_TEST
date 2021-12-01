@@ -1,6 +1,7 @@
 // Import package validation du password
 const passwordValidator = require('password-validator');
 const { schema } = require('../models/User');
+
 // Définition du schéma pour ce password
 const passwordSchema = new passwordValidator();
 

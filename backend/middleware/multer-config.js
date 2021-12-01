@@ -1,4 +1,4 @@
-// Import package de gestion des fichiers entrants dans requête HTTP
+// Package de gestion des fichiers entrants dans requête HTTP
 const multer = require('multer');
 
 // Création d'un objet type dictionnaire
