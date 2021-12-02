@@ -3,6 +3,7 @@ const express = require('express');
 
 // Import helmet
 const helmet = require('helmet');
+// Import bodyParser
 
 const bodyParser = require('body-parser');
 
@@ -52,8 +53,9 @@ app.use(bodyParser.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Routes sauces et utilisateurs
-app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', saucesRoutes);
+
 
 module.exports = app;
 

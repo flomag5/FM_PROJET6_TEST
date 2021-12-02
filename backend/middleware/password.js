@@ -2,13 +2,14 @@
 const passwordValidator = require('password-validator');
 const { schema } = require('../models/User');
 
+
 // Définition du schéma pour ce password
 const passwordSchema = new passwordValidator();
 
 // Règles pour la création du mot de passe
 passwordSchema
     .is().min(6)                                    // Minimum length 6
-    .is().max(50)                                  // Maximum length 30
+    .is().max(50)                                  // Maximum length 50
     .has().uppercase()                              // Must have uppercase letters
     .has().lowercase()                              // Must have lowercase letters
     .has().digits(2)                                // Must have at least 2 digits

@@ -25,15 +25,16 @@ exports.createSauce = (req, res, next) => {
 
 };
 
-// Affichage de toutes les sauces --READ--
+// Lecture de toutes les sauces --READ--
 exports.getAllSauces = (req, res, next) => {
     Sauce.find()
         .then(sauces => res.status(200).json(sauces))
         .catch(error => res.status(400).json({ error }));
 };
 
-// Affichage d'une sauce --READ--
+// Lecture d'une seule sauce --READ--
 exports.getOneSauce = (req, res, next) => {
+    // Recherche la sauce avec cet Id
     Sauce.findOne({ _id: req.params.id })
         .then(sauce => res.status(200).json(sauce))
         .catch(error => res.status(404).json({ error }));
@@ -58,10 +59,11 @@ exports.deleteSauce = (req, res, next) => {
         .then(sauce => {
             // Extraction du nom de fichier à supprimer
             const filename = sauce.imageUrl.split('/images/')[1];
+            // Supprime l'img du dossier images
             fs.unlink(`images/${filename}`, () => {
                 // Callback de supression objet dans database
                 Sauce.deleteOne({ _id: req.params.id })
-                    .then(() => res.status(200).json({ message: "La sauce a bien été supprimée" }))
+                    .then(() => res.status(200).json({ message: "La sauce a bien été supprimée !" }))
                     .catch(error => res.status(400).json({ error }));
             });
         })
