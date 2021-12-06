@@ -17,7 +17,7 @@ const normalizePort = val => {
 };
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-// Recherche et support des erreurs
+// Recherche et support des erreurs de manière appropriée
 const errorHandler = error => {
     if (error.syscall !== 'listen') {
         throw error;
@@ -46,5 +46,5 @@ server.on('listening', () => {
     const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
     console.log('Listening on ' + bind);
 });
-
+// Ecoute et attente des requêtes envoyées
 server.listen(port);

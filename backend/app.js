@@ -1,10 +1,12 @@
+//--- Contient application Express de gestion des réponse du server aux requêtes ---//
+
 // Importation express
 const express = require('express');
 
 // Import helmet
 const helmet = require('helmet');
-// Import bodyParser
 
+// Import bodyParser
 const bodyParser = require('body-parser');
 
 // Importation mongoose

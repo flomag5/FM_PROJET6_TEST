@@ -1,6 +1,8 @@
-// Importation mongoose
+//--- Définition du modèle de ressource "user" ---//
+
+// Import de l'outil de modélisation d'objets MongoDB
 const mongoose = require('mongoose');
-// Package de validation
+// Package de validation d'email unique pour un user
 const uniqueValidator = require('mongoose-unique-validator');
 
 // Schema du modèle de base pour sign up/login

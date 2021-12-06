@@ -1,3 +1,5 @@
+//----- Middleware d'authentification, validation des token -----//
+
 // Module d'échange sécurisé de token
 const jwt = require('jsonwebtoken');
 // Module de stockage de la configuration dans l'environnement

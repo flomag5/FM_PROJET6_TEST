@@ -1,3 +1,5 @@
+//--- Middleware de configuration du package de gestion de fichiers entrants ---//
+
 // Package de gestion des fichiers entrants dans requête HTTP
 const multer = require('multer');
 

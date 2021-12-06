@@ -5,7 +5,7 @@ const cryptojs = require('crypto-js');
 // Import de package token d'authentification
 const jwt = require('jsonwebtoken');
 
-// Import variables d'environnement
+// Import package pour gérer et manipuler les variables d'environnement
 const dotenv = require("dotenv");
 const result = dotenv.config();
 
@@ -13,7 +13,7 @@ const result = dotenv.config();
 const User = require('../models/User');
 
 
-// Enregistrement d'un nouveau user dans la database
+//-------- Enregistrement d'un nouveau user dans la database SIGNUP -------------//
 exports.signup = (req, res, next) => {
 
     // Cryptage de l'adresse mail
@@ -24,6 +24,7 @@ exports.signup = (req, res, next) => {
     salt = 10 nombre de fois d'exécution algorithme de hachage */
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
+            // Instanciation d'un modèle User pour écriture dans la database
             const user = new User({
                 email: emailCryptoJs,
                 password: hash
@@ -37,12 +38,11 @@ exports.signup = (req, res, next) => {
 };
 
 
-// Identification d'un utilisateur
+//--------------- Identification d'un utilisateur LOGIN --------------------//
 exports.login = (req, res, next) => {
     // Crypter l'email de la requête
     const emailCryptoJs = cryptojs.HmacSHA256(req.body.email, `${process.env.EMAIL_CRYPTOJS_KEY}`).toString();
-    console.log("emailCryptoJs");
-    console.log(emailCryptoJs);
+
     // Recherche si user déjà enregistré dans la database
     User.findOne({ email: emailCryptoJs })
         .then((user) => {
@@ -50,7 +50,7 @@ exports.login = (req, res, next) => {
                 return res.status(401).json({ error: "Utilisateur non enregistré" })
             }
             /* Contrôler la validité du password:
-            .compare le mot de passe entré sur le front avec le mot de passe hashé de la database*/
+            .compare le mot de passe de la requête avec le mot de passe hashé de la database*/
             bcrypt.compare(req.body.password, user.password)
                 .then((checkpassword) => {
                     console.log(checkpassword);
@@ -59,6 +59,7 @@ exports.login = (req, res, next) => {
                     }
                     // Mot de passe valide
                     res.status(200).json({
+                        // Attribution d'un token
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },

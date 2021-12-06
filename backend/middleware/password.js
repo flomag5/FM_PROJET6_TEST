@@ -1,3 +1,5 @@
+//--- Middleware de définition de règles pour validation du password ---//
+
 // Import package validation du password
 const passwordValidator = require('password-validator');
 const { schema } = require('../models/User');
