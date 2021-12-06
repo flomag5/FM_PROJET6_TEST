@@ -92,3 +92,13 @@ exports.deleteSauce = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
 };
+
+
+// Notation d'une sauce --LIKE/DISLIKE--
+exports.likeSauce = (req, res, next) => {
+    const like = req.body.like;
+    const sauceId = req.params.id;
+    const userId = req.body.userId;
+
+
+}
