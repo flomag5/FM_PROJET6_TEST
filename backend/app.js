@@ -1,4 +1,4 @@
-//--- Contient application Express de gestion des réponse du server aux requêtes ---//
+//--- Contient application Express de gestion des réponses du serveur aux requêtes ---//
 
 // Importation express
 const express = require('express');
@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 // Importation mongoose
 const mongoose = require('mongoose');
 
-// Importation pour accéder au path du serveur
+// Utilitaire pour travailler avec les chemins de fichiers et de répertoires
 const path = require('path');
 
 // Improtation des routes
