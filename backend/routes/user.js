@@ -6,7 +6,7 @@ const express = require('express');
 // Importation middleware du password
 const password = require('../middleware/password');
 
-// Classe de gestionnaire de routes
+// Création du routeur pour les routes de l'utilisateur
 const router = express.Router();
 
 // Importation du controller des routes pour user

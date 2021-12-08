@@ -1,6 +1,9 @@
+//--- Server pour écouter les requêtes frontend et servir une réponse en retour ---//
+
 // Import package http comme outils pour créer server
 const http = require('http');
-// Import de l'application
+
+// Import de l'application express
 const app = require('./app');
 
 // Retourne un port valide qu'il soit sous forme de numéro ou chaîne de caractères
@@ -15,8 +18,11 @@ const normalizePort = val => {
     }
     return false;
 };
+
 const port = normalizePort(process.env.PORT || '3000');
+// Réglage du port d'écoute des requêtes par l'application
 app.set('port', port);
+
 // Recherche et support des erreurs de manière appropriée
 const errorHandler = error => {
     if (error.syscall !== 'listen') {
@@ -38,6 +44,7 @@ const errorHandler = error => {
     }
 };
 
+// Création du server
 const server = http.createServer(app);
 // Ecouteur d'évènements, port sur lequel le serveur s'exécute
 server.on('error', errorHandler);

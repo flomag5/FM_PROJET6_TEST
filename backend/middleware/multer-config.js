@@ -3,7 +3,7 @@
 // Package de gestion des fichiers entrants dans requête HTTP
 const multer = require('multer');
 
-// Création d'un objet type dictionnaire
+// Création d'un objet type dictionnaire pour génération d'extension de fichier
 const MIME_TYPES = {
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',

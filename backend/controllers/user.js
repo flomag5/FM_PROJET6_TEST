@@ -1,3 +1,5 @@
+//--- Définition logique métier pour la ressource user ---//
+
 // Import de bcrypt pour hachage password
 const bcrypt = require('bcrypt');
 // Import de crypto-js pour chiffrer adresse mail
@@ -5,7 +7,7 @@ const cryptojs = require('crypto-js');
 // Import de package token d'authentification
 const jwt = require('jsonwebtoken');
 
-// Import package pour gérer et manipuler les variables d'environnement
+// Import/chargement package pour gérer et manipuler les variables d'environnement
 const dotenv = require("dotenv");
 const result = dotenv.config();
 
