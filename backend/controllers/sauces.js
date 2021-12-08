@@ -26,7 +26,6 @@ exports.createSauce = (req, res, next) => {
             })
         })
         .catch((error) => res.status(400).json({ error }))
-
 };
 
 // Lecture de toutes les sauces --READ--
@@ -158,5 +157,4 @@ exports.likeSauce = (req, res, next) => {
         default:
             res.status(400).json({ "error": "Donnée non valable" });
     }
-
 };

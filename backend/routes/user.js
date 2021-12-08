@@ -13,7 +13,7 @@ const router = express.Router();
 const userCtrl = require('../controllers/user');
 
 // Route pour inscription
-router.post('/signup', userCtrl.signup);
+router.post('/signup', password, userCtrl.signup);
 
 // Route pour identification
 router.post('/login', userCtrl.login);
