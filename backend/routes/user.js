@@ -1,4 +1,4 @@
-//--- Définition de la logique de routing pour la ressource sauce ---//
+//--- Définition de la logique de routing pour la ressource user ---//
 
 // Importation du package Express
 const express = require('express');

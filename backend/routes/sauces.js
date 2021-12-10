@@ -3,7 +3,7 @@
 // Importation express
 const express = require('express');
 
-// Classe de gestionnaire de routes
+// Création du routeur pour les routes "sauces"
 const router = express.Router();
 
 // Import du middleware d'authentification pour vérification des tokens
@@ -11,7 +11,7 @@ const auth = require('../middleware/auth');
 // Import de gestion des fichiers téléchargés
 const multer = require('../middleware/multer-config');
 
-// Import du controller pour user
+// Import du controller pour sauces
 const saucesCtrl = require('../controllers/sauces');
 
 // Routes CRUD avec middleware d'authentification

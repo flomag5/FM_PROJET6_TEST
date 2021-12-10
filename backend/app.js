@@ -9,7 +9,7 @@ const helmet = require('helmet');
 // Import module express-rate-limit
 const rateLimit = require('express-rate-limit');
 
-// Import bodyParser, exploitation du corps des requêtes
+// Analyse du corps des requêtes, formatage pour faciliter exploitation
 const bodyParser = require('body-parser');
 
 // Importation mongoose, facilite manipulation de la database MongoDB

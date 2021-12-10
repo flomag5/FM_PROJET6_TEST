@@ -45,7 +45,7 @@ exports.getOneSauce = (req, res, next) => {
 
 // Modification d'une sauce --UPDATE--
 exports.modifySauce = (req, res, next) => {
-    // Si fichier image dans la requête
+    // Si nouveau fichier image dans la requête
     if (req.file) {
         // Recherche de la sauce avec le même id
         Sauce.findOne({ _id: req.params.id })
