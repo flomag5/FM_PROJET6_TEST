@@ -6,6 +6,9 @@ const express = require('express');
 // Import du package de sécurité helmet
 const helmet = require('helmet');
 
+// Import de morgan (logger http)
+const morgan = require('morgan');
+
 // Import module express-rate-limit
 const rateLimit = require('express-rate-limit');
 
@@ -28,6 +31,9 @@ const result = dotenv.config();
 
 // Création de l'application Express
 const app = express();
+
+// Logger les requests et les responses
+app.use(morgan('dev'));
 
 // Sécurisation des en-têtes de réponse http
 app.use(helmet());
