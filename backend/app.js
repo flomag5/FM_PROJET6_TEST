@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 // Middleware de limitation des demandes répétées à l'API ou aux endpoints
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100 // limite de requête par IP pour windowsMs
+    max: 200 // limite de requête par IP pour windowsMs
 });
 app.use(limiter);
 
