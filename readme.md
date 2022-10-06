@@ -1,4 +1,6 @@
-# FlorentMagnoac_6_24112021 #
+# FlorentMagnoac_6_24112021 #  
+
+![App_sauce](https://user-images.githubusercontent.com/86949841/194278063-29628de0-ced7-4bd8-9146-2e2da5e665c4.jpg)
 
 ## Objectifs : ##
 Création d’une API sécurisée pour une application d'évaluation
